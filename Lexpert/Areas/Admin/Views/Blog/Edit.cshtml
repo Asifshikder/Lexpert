@@ -1,0 +1,57 @@
+﻿@model Lexpert.Models.BlogPostVM
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/Admin/Blog/Index">Blog</a>
+        </li>
+        <li class="breadcrumb-item active">Update</li>
+    </ol>
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Blog
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+
+                <form asp-area="Admin" asp-controller="Blog" asp-action="Update" method="post" enctype="multipart/form-data">
+                    @Html.HiddenFor(s=>s.BlogId)
+                    @Html.HiddenFor(s=>s.BlogImage)
+                    <div class="form-group">
+                        <label class="control-label">Title</label>
+                        <input asp-for="BlogTitle" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Description</label>
+                        <textarea asp-for="Content" class="summernote" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Image</label>
+                        <input type="file" asp-for="BlogImageFile" class="form-control dropify"  data-default-file="@Url.Content(Model.BlogImage)">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            $('.dropify').dropify();
+            $('.summernote').summernote({
+                tabsize: 2,
+                height: 500
+            });
+        });
+
+    </script>
+}

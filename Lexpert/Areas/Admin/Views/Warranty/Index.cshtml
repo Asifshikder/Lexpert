@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/Admin/Warranty/Index">Warranty</a>
+        </li>
+        <li class="breadcrumb-item active">Index</li>
+    </ol>
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Warranty
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Order</th>
+                            <th>Is liked?</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        var _ID;
+        var _id;
+        var table;
+        var StatusIsActive = 1;
+        $(document).ready(function () {
+            table = $("#dataTable").DataTable
+                ({
+                    "language":
+                    {
+                        "processing": "<div class='overlay custom-loader-background'><i class='fa fa-cog fa-spin custom-loader-color'></i></div>"
+                    },
+                    "processing": true,
+                    "serverSide": true,
+                    "ajax":
+                    {
+                        "url": "/Admin/Warranty/GetAll",
+                        "type": "POST",
+                        "dataType": "JSON",
+                        data: function (d) {
+                            d.__RequestVerificationToken = $('[name=__RequestVerificationToken]').val();
+                            d.statusID = $("#Status").val();
+                        }
+                    },
+                    "columnDefs": [
+                        //{ "targets": [0], "width": "5%" },
+                        //{ "targets": [0], "data": "warrantyId", "render": function (data, type, row, meta) { return "<td><input type='' id='warrantyId' name='warrantyId' value=" + row.warrantyId + "></td>" } },
+                        //{ "targets": [5], "style": "align='center'", "orderable": false, "data": "Action", "render": function (data, type, row, meta) { return '<button id="showForDetails" class="btn btn-sm btn-outline-success">Details</button>  ' } }
+                    ],
+                    "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                        //$(nRow).find("td:eq(0)").attr("hidden", true);
+                        return nRow;
+                    },
+                    "columns": [
+                        {
+                            "data": "warrantyId"
+                        },
+                        {
+                            "data": "fullName"
+                        },
+                        {
+                            "data": "email"
+                        },
+                        {
+                            "data": "orderCode"
+                        },
+                        {
+                            "data": "purchaseLike"
+                        }
+                    ],
+                    "bFilter": false
+                });
+        });
+    </script>
+}

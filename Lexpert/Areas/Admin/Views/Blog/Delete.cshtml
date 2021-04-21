@@ -1,0 +1,46 @@
+﻿@model BlogPost
+@{
+    ViewData["Title"] = "Delete";
+}
+
+@Html.AntiForgeryToken()
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/Admin/Blog/Index">Blog</a>
+        </li>
+        <li class="breadcrumb-item active">Create</li>
+    </ol>
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i>Blog
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+
+                <form asp-area="Admin" asp-controller="Blog" asp-action="DeleteConfirm" method="post" enctype="multipart/form-data">
+                    @Html.HiddenFor(s => s.BlogId)
+                    @Html.HiddenFor(s => s.BlogImage)
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Title</label>
+                                <input class="form-control" asp-for="BlogTitle" disabled />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Content</label>
+                                <input class="form-control" asp-for="Content" disabled />
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button class="btn btn-block btn-success" type="submit">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

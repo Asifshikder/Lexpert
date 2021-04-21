@@ -1,0 +1,161 @@
+﻿@model Lexpert.Models.ProductVM
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+@Html.AntiForgeryToken()
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/Admin/Product/Index">Product</a>
+        </li>
+        <li class="breadcrumb-item active">Update</li>
+    </ol>
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i>Product
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+
+                <form asp-area="Admin" asp-controller="Product" asp-action="Update" method="post" enctype="multipart/form-data">
+                    @Html.HiddenFor(s=>s.ProductId)
+                    @Html.HiddenFor(s=>s.FeatureImage1)
+                    @Html.HiddenFor(s=>s.FeatureImage2)
+                    @Html.HiddenFor(s=>s.FeatureImage3)
+                    @Html.HiddenFor(s=>s.FeatureImage4)
+                    @Html.HiddenFor(s=>s.FeatureImage5)
+                    @Html.HiddenFor(s=>s.ProfileImage)
+                    @Html.HiddenFor(s=>s.ProfileImage1)
+                    @Html.HiddenFor(s=>s.ProfileImage2)
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Name</label>
+                                <input class="form-control" asp-for="ProductName" required />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Amazon Link</label>
+                                <input class="form-control" asp-for="Amazonlink" required />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Short Description</label>
+                                <input class="form-control" asp-for="ShortDescription"  />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Cart Description</label>
+                                <input class="form-control" asp-for="CartDescription"  />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Video Title</label>
+                                <input class="form-control" asp-for="VideoName" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Video link(IFrame from youtube)</label>
+                                <input class="form-control" asp-for="VideoUrl" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Is feature(If this marked it will show in the homepage)<input class=""
+                                                                                                  id="IsFeature"
+                                                                                                  name="IsFeature"
+                                                                                                  type="checkbox"
+                                                                                                  value="true" />
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Descrption(Product List)</label>
+                                <textarea asp-for="Description" class="summernote" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Details(Both in list and details)</label>
+                                <textarea asp-for="OtherDescription" class="summernote" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <h4>Primary images</h4>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="file" asp-for="ProfileImageFile" class="form-control dropify" data-default-file="@Url.Content(Model.ProfileImage)">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="file" asp-for="ProfileImage1File" class="form-control dropify" data-default-file="@Url.Content(Model.ProfileImage1)">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="file" asp-for="ProfileImage2File" class="form-control dropify" data-default-file="@Url.Content(Model.ProfileImage2)">
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <h4>Feature images</h4>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="file" asp-for="FeatureImage1File" class="form-control dropify" data-default-file="@Url.Content(Model.FeatureImage1)">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="file" asp-for="FeatureImage2File" class="form-control dropify" data-default-file="@Url.Content(Model.FeatureImage2)">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="file" asp-for="FeatureImage3File" class="form-control dropify" data-default-file="@Url.Content(Model.FeatureImage3)">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="file" asp-for="FeatureImage4File" class="form-control dropify" data-default-file="@Url.Content(Model.FeatureImage4)">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="file" asp-for="FeatureImage5File" class="form-control dropify" data-default-file="@Url.Content(Model.FeatureImage5)">
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button class="btn btn-block btn-success" type="submit">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            $('.dropify').dropify();
+            $('.summernote').summernote({
+                tabsize: 2,
+                height: 200
+            });
+        });
+
+    </script>
+}

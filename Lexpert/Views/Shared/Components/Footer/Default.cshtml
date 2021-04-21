@@ -1,0 +1,148 @@
+﻿@model GlobSetVM
+
+<footer style="background-color:rgb(7 9 21);">
+    @if (Model != null)
+    {
+        @if (Model.UseSmallFooter == true)
+        {
+            <div class="container">
+                <hr class="offset-md">
+
+                <div class="">
+                    <div class="col-sm-12 col-md-12 text-center text-center-xs">
+                        <h3 class="text-simple">Lexpert Tech LLC, Texas, USA</h3>
+                    </div>
+                    <div class="col-sm-12 col-md-12 text-center text-center-xs">
+                        <h3 class="text-simple">
+                            Copyright © 2020 Lexpert Tech LLC. All rights reserved
+                            <a href="/Home/Privacy">Privacy</a>
+                            <a href="/Home/Contact">Contact us</a>
+                            <a href="/Warranty/Index">Subscribe</a>
+                        </h3>
+
+                    </div>
+                </div>
+            </div>
+
+
+        }
+        else
+        {
+            <div class="container">
+                <hr class="offset-md">
+
+                <div class="" style="margin:0px 50px 0px 50px">
+                    <div class="col-sm-12 col-md-12 text-center text-center-xs">
+                        <h3 class="text-simple">Lexpert Tech LLC, Texas, USA</h3>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <div style="padding-left:30px">
+                            <h1 class="h4 text-white">Information</h1>
+
+                            <div class="">
+                                <p><a href="/Home/Aboutus" class="text-simple">About</a></p>
+                                <p><a href="/Home/Privacy" class="text-simple">Privacy</a></p>
+                                <p><a href="/Home/Contact" class="text-simple">Contact</a></p>
+                                <p><a href="/Warranty/Index" class="text-simple">Subscribe</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <div style="padding-left:30px">
+
+                            <h1 class="h4 text-white">Products</h1>
+
+                            <div class="">
+                                <p><a href="/Product/Details?id=@Model.BasicProductId" class="text-simple">Hidden camera - Basic</a></p>
+                                <p><a href="/Product/Details?id=@Model.AdvanceProductId" class="text-simple">Hidden camera - Advance</a></p>
+                                <p><a href="/Product/Details?id=@Model.UltimateProductId" class="text-simple">Hidden camera - Ultimate</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <div style="padding-left:30px">
+
+                            <h1 class="h4 text-white">Navigate </h1>
+
+                            <div class="">
+                                <p><a href="/Home/Index" class="text-simple">Home</a></p>
+                                <p><a href="/Warranty/Index" class="text-simple">Warranty</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 align-center align-center-xs">
+                        <hr class="offset-sm">
+
+                        <h4 style="color:#e2d8d8">Copyright © 2020 Lexpert Tech LLC. All rights reserved.</h4>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="container">
+            <hr class="offset-md">
+
+            <div class="" style="margin:0px 50px 0px 50px">
+                <div class="col-sm-12 col-md-12 text-center text-center-xs">
+                    <h3 class="text-simple">Lexpert Tech LLC, Texas, USA</h3>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div style="padding-left:30px">
+                        <h1 class="h4 text-white">Information</h1>
+
+                        <div class="">
+                            <p><a href="/Home/Aboutus" class="text-simple">About</a></p>
+                            <p><a href="/Home/Privacy" class="text-simple">Privacy</a></p>
+                            <p><a href="/Home/Contact" class="text-simple">Contact</a></p>
+                            <p><a href="/Warranty/Index" class="text-simple">Subscribe</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div style="padding-left:30px">
+
+                        <h1 class="h4 text-white">Products</h1>
+
+                        <div class="">
+                            <p><a href="/Product/Details?id=@Model.BasicProductId" class="text-simple">Hidden camera - Basic</a></p>
+                            <p><a href="/Product/Details?id=@Model.AdvanceProductId" class="text-simple">Hidden camera - Advance</a></p>
+                            <p><a href="/Product/Details?id=@Model.UltimateProductId" class="text-simple">Hidden camera - Ultimate</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div style="padding-left:30px">
+
+                        <h1 class="h4 text-white">Navigate </h1>
+
+                        <div class="">
+                            <p><a href="/Home/Index" class="text-simple">Home</a></p>
+                            <p><a href="/Warranty/Index" class="text-simple">Warranty</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 align-center align-center-xs">
+                    <hr class="offset-sm">
+
+                    <h4 style="color:#e2d8d8">Copyright © 2020 Lexpert Tech LLC. All rights reserved.</h4>
+                </div>
+            </div>
+        </div>
+    }
+
+</footer>
+

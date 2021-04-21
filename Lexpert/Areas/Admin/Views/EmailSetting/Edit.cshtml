@@ -1,0 +1,68 @@
+﻿@model EmailSetting
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/Admin/EmailSetting/Index">EmailSetting</a>
+        </li>
+        <li class="breadcrumb-item active">Update</li>
+    </ol>
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i> EmailSetting
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+
+                <form asp-area="Admin" asp-controller="EmailSetting" asp-action="Update" method="post" enctype="multipart/form-data">
+                    @Html.HiddenFor(s => s.EmailSettingsId)
+                    <div class="form-group">
+                        <label class="control-label">Sender Email</label>
+                        <input asp-for="SenderEmail" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Host Name</label>
+                        <input asp-for="HostName" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Port Number</label>
+                        <input asp-for="PortName" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Display Name</label>
+                        <input asp-for="DisplayName" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Username</label>
+                        <input asp-for="Username" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Password</label>
+                        <input asp-for="Password" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            $('.dropify').dropify();
+            $('.summernote').summernote({
+                tabsize: 2,
+                height: 500
+            });
+        });
+
+    </script>
+}
